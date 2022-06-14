@@ -15,6 +15,7 @@ const Login = () => {
           <h2>Iniciar Sesion</h2>
         </Grid>
 
+        <form action="#">
         <TextField
           id="filled-basic"
           label="Filled"
@@ -47,6 +48,10 @@ const Login = () => {
         <Typography>
             <Link href="#" >¿Olvidaste tu contraseña?</Link>
         </Typography>
+          
+        </form>
+
+ 
       </Paper>
     </Grid>
   );

@@ -41,12 +41,16 @@ function a11yProps(index) {
   };
 }
 
-export default function Container() {
+export default function Container(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleNewUser = (user) =>{
+    props.sendUserDb(user);
+  }
 
   return (
     <Box  sx={{ width: '100%' }}>
@@ -58,10 +62,10 @@ export default function Container() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Login/>
+        <Login />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Signup/>
+        <Signup onNewUser = {handleNewUser}/>
       </TabPanel>
      
     </Box>
