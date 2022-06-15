@@ -1,10 +1,37 @@
 import React from "react";
 import { Avatar, Checkbox, FormControlLabel, FormGroup, Grid, Paper, TextField,Button, Typography, Link } from "@mui/material";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
-
+import { useState } from "react";
 import "./Login.css"
 
-const Login = () => {
+const Login = (props) => {
+  const [userName, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  const newUserName = (event) =>{
+    
+    setUsername(event.target.value);
+  }
+
+  const newPassword = (event) =>{
+   
+    setPassword(event.target.value);
+  }
+
+
+  const loginFormHandler = () =>{
+
+    const oldUser = {
+      nickname : userName,
+      password : password,
+    }
+
+    props.oldUser(oldUser);
+
+  }
+
+
   return (
     <Grid>
       <Paper elevation={10} className="paperStyle">
@@ -15,24 +42,26 @@ const Login = () => {
           <h2>Iniciar Sesion</h2>
         </Grid>
 
-        <form action="#">
+        <form action="#" onSubmit={loginFormHandler}>
         <TextField
-          id="filled-basic"
+          
           label="Filled"
           variant="filled"
           placeholder="Enter Username"
           fullWidth
-          requiered
+          required={true}
+          onChange={newUserName}
         />
 
         <TextField
-          id="filled-basic"
+         
           label="Filled"
           variant="filled"
-          placeholder="Enter Username"
+          placeholder="Enter Password"
           fullWidth
-          requiered
+          required={true}
           type="password"
+          onChange={newPassword}
         />
 
         <FormGroup>
@@ -41,11 +70,11 @@ const Login = () => {
 
         <Button className="btn-style" type="submit" color="primary" fullWidth variant="contained"  >Sign in</Button>
 
-        <Typography>
+        <Typography component={"span"}>
             <Link href="#" >Registrate!</Link>
         </Typography>
 
-        <Typography>
+        <Typography component={"span"}>
             <Link href="#" >¿Olvidaste tu contraseña?</Link>
         </Typography>
           

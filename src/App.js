@@ -4,9 +4,13 @@ import Container from "./containers/Container";
 
 function App() {
 
-  const [newUser,setNewUser] = useState("")
 
+  const [newUser,setNewUser] = useState({})
+  const [oldUser, setOldUser] = useState({})
 
+  const oldUserHandler = (user) =>{
+    setOldUser(user);
+  }
   const newUserHandler = (user) =>{
 
     console.log("From app.js")
@@ -14,10 +18,11 @@ function App() {
 
   }
   console.log(newUser);
+  console.log(oldUser);
   
   return (
     <div className="App">
-     <Container sendUserDb ={newUserHandler}/>
+     <Container sendUserDb ={newUserHandler} oldUser={oldUserHandler}/>
     </div>
   );
 }

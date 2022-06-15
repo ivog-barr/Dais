@@ -67,21 +67,24 @@ const Signup = (props) =>{
                 </Avatar>
                 
                 <h2 className="headerStyle">Nuevo usuario</h2>
-                <Typography variant="caption">Para crear cuenta rellene el formulario</Typography>
+                <Typography component={"span"}variant="caption">Para crear cuenta rellene el formulario</Typography>
             </Grid>
 
             <form onSubmit={handleSubmit}>
-            <TextField fullWidth id="filled-basic" label="Nombre" variant="filled" onChange={newUserName} />
-            <TextField fullWidth id="filled-basic" label="Email" variant="filled" onChange={newEmail} />
-            <TextField fullWidth id="filled-basic" label="Edad" variant="filled" type="number" onChange={newAge}/>
-            <TextField fullWidth id="filled-basic" label="Contraseña" variant="filled" type="password" onChange={newPassword} />
-            <TextField fullWidth id="filled-basic" label="Repetir contraseña" type="password" variant="filled" onChange={newRepeatPassword} />
+            <TextField fullWidth  label="Nombre" variant="filled" onChange={newUserName} required={true}/>
+            <TextField fullWidth label="Email" variant="filled" onChange={newEmail} required={true}/>
 
-            <label className="labels">Incomplete Fields</label> 
+            <TextField fullWidth label="Edad" variant="filled" type="number" onChange={newAge} required={true}/>
+
+            <TextField fullWidth label="Contraseña" variant="filled" type="password" onChange={newPassword} required={true} />
+
+            
+            <TextField fullWidth label="Repetir contraseña" type="password" variant="filled" onChange={newRepeatPassword} required={true} />
+
             
            
             <FormGroup>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Acptar terminos y condiciones" />
+                <FormControlLabel control={<Checkbox defaultChecked={true} />} label="Acptar terminos y condiciones" />
              </FormGroup>
             <Button type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
 

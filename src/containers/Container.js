@@ -21,7 +21,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box  sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={"span"}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -52,6 +52,10 @@ export default function Container(props) {
     props.sendUserDb(user);
   }
 
+  const handleOldUser = (user) =>{
+    props.oldUser(user);
+  }
+
   return (
     <Box  sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -62,7 +66,7 @@ export default function Container(props) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Login />
+        <Login oldUser = {handleOldUser} />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Signup onNewUser = {handleNewUser}/>
