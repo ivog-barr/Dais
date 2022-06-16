@@ -20,7 +20,8 @@ const Login = (props) => {
   }
 
 
-  const loginFormHandler = () =>{
+  const loginFormHandler = (event) =>{
+    event.preventDefault()
 
     const oldUser = {
       nickname : userName,

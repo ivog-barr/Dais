@@ -4,8 +4,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Login from '../components/Login';
-import Signup from '../components/SIgnup';
+import Login from '../../components/Login/Login';
+import Signup from '../../components/Login/SIgnup';
 import "./Container.css"
 
 function TabPanel(props) {
