@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import Container from "./containers/Login-Container/Container";
+import EditProfile from "./components/Edit-Profile/EditProfile";
 
 function App() {
 
@@ -22,7 +23,9 @@ function App() {
   
   return (
     <div className="App">
-     <Container sendUserDb ={newUserHandler} oldUser={oldUserHandler}/>
+    {/*  <Container sendUserDb ={newUserHandler} oldUser={oldUserHandler}/> */}
+
+    <EditProfile />
     </div>
   );
 }
